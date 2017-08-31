@@ -1,26 +1,167 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8vJ-6t-wQU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NameGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ceY-GQ-MCa">
+                                <rect key="frame" x="169" y="261" width="37" height="37"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ufp-UU-gjs">
+                                <rect key="frame" x="16" y="20.5" width="343" height="518.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yfe-s7-jzS">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="167.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eG-Bc-1SU" customClass="FaceButton" customModule="NameGame" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="167.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="1eG-Bc-1SU" secondAttribute="height" multiplier="1:1" id="gaW-1Z-4jL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <state key="normal" title="Willow Tree" backgroundImage="WTPlaceholder">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="faceButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hm5-Md-afg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9v-DZ-56u" customClass="FaceButton" customModule="NameGame" customModuleProvider="target">
+                                                <rect key="frame" x="175.5" y="0.0" width="167.5" height="167.5"/>
+                                                <state key="normal" backgroundImage="WTPlaceholder"/>
+                                                <connections>
+                                                    <action selector="faceButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nmt-Ea-JEd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3zo-MX-03O">
+                                        <rect key="frame" x="0.0" y="175.5" width="343" height="167.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsy-ku-2ss" customClass="FaceButton" customModule="NameGame" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="167.5"/>
+                                                <state key="normal" backgroundImage="WTPlaceholder"/>
+                                                <connections>
+                                                    <action selector="faceButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cRd-Gc-z7x"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFI-aV-Yjo" customClass="FaceButton" customModule="NameGame" customModuleProvider="target">
+                                                <rect key="frame" x="175.5" y="0.0" width="167.5" height="167.5"/>
+                                                <state key="normal" backgroundImage="WTPlaceholder"/>
+                                                <connections>
+                                                    <action selector="faceButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6JU-46-Ajv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9NX-2f-cic">
+                                        <rect key="frame" x="0.0" y="351" width="343" height="167.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Joh-mT-55U" customClass="FaceButton" customModule="NameGame" customModuleProvider="target">
+                                                <rect key="frame" x="88" y="0.5" width="167" height="167"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Joh-mT-55U" secondAttribute="height" multiplier="1:1" id="6Wd-r1-nK0"/>
+                                                </constraints>
+                                                <state key="normal" backgroundImage="WTPlaceholder"/>
+                                                <connections>
+                                                    <action selector="faceButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KOW-St-2RI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Joh-mT-55U" firstAttribute="centerY" secondItem="9NX-2f-cic" secondAttribute="centerY" id="725-HB-Oap"/>
+                                            <constraint firstItem="Joh-mT-55U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9NX-2f-cic" secondAttribute="top" id="L57-xl-Lcz"/>
+                                            <constraint firstItem="Joh-mT-55U" firstAttribute="centerX" secondItem="9NX-2f-cic" secondAttribute="centerX" id="P3p-4s-dU9"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Joh-mT-55U" secondAttribute="trailing" id="WdJ-R5-ByZ"/>
+                                            <constraint firstItem="Joh-mT-55U" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9NX-2f-cic" secondAttribute="leading" id="p1y-HM-GsF"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Joh-mT-55U" secondAttribute="bottom" id="zvc-GY-7Sa"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ceY-GQ-MCa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="IrY-8h-7T4"/>
+                            <constraint firstItem="ufp-UU-gjs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IzW-3s-qQf"/>
+                            <constraint firstItem="ceY-GQ-MCa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KX3-Hz-dFw"/>
+                            <constraint firstItem="ufp-UU-gjs" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Mgl-4B-kCW"/>
+                            <constraint firstItem="ufp-UU-gjs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="V1P-gJ-8ud"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ufp-UU-gjs" secondAttribute="trailing" id="b5e-rl-fhJ"/>
+                            <constraint firstItem="ufp-UU-gjs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jbv-br-brS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ufp-UU-gjs" secondAttribute="bottom" id="q3h-Ba-njL"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems>
+                        <barButtonItem title="Play" id="qZJ-KK-IH6">
+                            <connections>
+                                <action selector="playGame:" destination="BYZ-38-t0r" id="9nK-G3-Oib"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="1gU-6S-RY7"/>
+                    <connections>
+                        <outlet property="activityView" destination="ceY-GQ-MCa" id="z1c-XH-8U9"/>
+                        <outlet property="innerStackView1" destination="yfe-s7-jzS" id="Zp0-9b-ieY"/>
+                        <outlet property="innerStackView2" destination="3zo-MX-03O" id="rti-gM-xPf"/>
+                        <outlet property="outerStackView" destination="ufp-UU-gjs" id="rjx-ai-TOZ"/>
+                        <outletCollection property="faceButtons" destination="1eG-Bc-1SU" collectionClass="NSMutableArray" id="CNW-Jl-CSu"/>
+                        <outletCollection property="faceButtons" destination="y9v-DZ-56u" collectionClass="NSMutableArray" id="TYK-Ra-E4m"/>
+                        <outletCollection property="faceButtons" destination="bsy-ku-2ss" collectionClass="NSMutableArray" id="EKO-0U-oEc"/>
+                        <outletCollection property="faceButtons" destination="hFI-aV-Yjo" collectionClass="NSMutableArray" id="Ly2-Nl-TwX"/>
+                        <outletCollection property="faceButtons" destination="Joh-mT-55U" collectionClass="NSMutableArray" id="PAj-Fs-0oO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1124" y="244"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="q1b-CH-PbE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="8vJ-6t-wQU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZAZ-tD-T3D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="3wc-Lz-H1U">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cs8-do-mdq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P4O-ed-q7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="268" y="244"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="WTPlaceholder" width="377" height="377"/>
+    </resources>
 </document>

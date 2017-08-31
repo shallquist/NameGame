@@ -22,6 +22,17 @@ class NameGameTests: XCTestCase {
     }
     
     func testExample() {
+        
+        let expect = self.expectation(description: "Running")
+        
+        let wtProfiles = WTProfiles()
+        
+        wtProfiles.loadData(handler: {error in
+            expect.fulfill()
+        })
+        
+        
+        self.wait(for: [expect], timeout: 60)
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
