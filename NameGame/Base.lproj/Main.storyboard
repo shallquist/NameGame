@@ -123,9 +123,15 @@
                                 <action selector="playGame:" destination="BYZ-38-t0r" id="9nK-G3-Oib"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Filter" id="Cmw-jM-aqP">
+                        <barButtonItem image="Filtered" id="Cmw-jM-aqP">
                             <connections>
                                 <action selector="filterAction:" destination="BYZ-38-t0r" id="uW5-FX-dvf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="eF0-dx-EKM"/>
+                        <barButtonItem systemItem="refresh" id="M5f-7C-3mE">
+                            <connections>
+                                <action selector="resetGame:" destination="BYZ-38-t0r" id="flP-0q-TcE"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -167,6 +173,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Filtered" width="25" height="25"/>
         <image name="WTPlaceholder" width="377" height="377"/>
     </resources>
 </document>

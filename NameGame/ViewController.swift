@@ -72,24 +72,11 @@ class ViewController: UIViewController {
     }
     
     func newGame(_ filter:String? = nil) {
-        
-        /*
-        let filteredList = wtTeam.profiles.filter({ (wtProfile) -> Bool in
-            return filter == nil || wtProfile.firstName.hasPrefix(filter!)
-        })
-        
-        guard let list = filteredList.randomItems(maxItems: maxProfiles), list.count > 0 else {
-            errorMessage(error: WTError.noProfiles)
-            return
-        }
-        */
-        
         do {
             let list = try wtTeam.getFiltredList(count: maxProfiles, filter: filter)
             
             clearButtons()
             self.profilesLoaded = 0
-
             
             profileToLoad = list.count
             currentIndex = Int(arc4random_uniform(UInt32(list.count)))
@@ -121,7 +108,6 @@ class ViewController: UIViewController {
             button.setup()
         }
     }
-    
     
     func errorMessage(error:Error?) {
         var message:String
@@ -180,6 +166,10 @@ class ViewController: UIViewController {
     
     @IBAction func playGame(_ sender: UIBarButtonItem) {
         newGame(self.nameFilter)
+    }
+    
+    @IBAction func resetGame(_ sender: UIBarButtonItem) {
+        self.loadData()
     }
 }
 

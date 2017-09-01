@@ -48,8 +48,10 @@ open class FaceButton: UIButton {
 
         if id == guess {
             tintView.backgroundColor = UIColor.green
+            setTitleColor(.green, for: .normal)
         } else {
             tintView.backgroundColor = UIColor.red
+            setTitleColor(.red, for: .normal)
         }
         
         return id == guess

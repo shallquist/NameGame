@@ -50,7 +50,7 @@ class WTProfiles: NSObject {
     
     func getFiltredList(count:Int, filter:String?) throws -> [WTProfile] {
         let filteredList = self.profiles.filter({ (wtProfile) -> Bool in
-            return filter == nil || wtProfile.firstName.hasPrefix(filter!)
+            return filter == nil || wtProfile.firstName.uppercased().hasPrefix(filter!.uppercased())
         })
         
         guard let list = filteredList.randomItems(maxItems: count), list.count > 0 else {
