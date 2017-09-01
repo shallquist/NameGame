@@ -46,8 +46,7 @@ class WTProfile: NSObject {
     
     func getImage()->UIImage? {
         guard
-            let url = URL(string:"https://\(imageURL)"),
-            let imageData = try? Data(contentsOf: url)
+            let imageData = try? Data(contentsOf: imageURL)
         else {
                 return nil
         }

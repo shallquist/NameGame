@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         //limit number of profiles to number of buttons available
         self.maxProfiles = faceButtons.count
         
-        configureOrientation(size: self.view.frame.size)
+        //configureOrientation(size: self.view.frame.size)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,10 +54,11 @@ class ViewController: UIViewController {
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        configureOrientation(size: size)
+        //configureOrientation(size: size)
     }
     
     //Modify the stack view orientations so that the images utilize screen space
+    /*
     func configureOrientation(size : CGSize) {
         let orientation: UIDeviceOrientation = size.height < size.width ? .landscapeLeft : .portrait
         
@@ -71,6 +72,7 @@ class ViewController: UIViewController {
             innerStackView2.axis = .vertical
         }
     }
+     */
     
     func loadData() {
         activityView.isHidden = false
