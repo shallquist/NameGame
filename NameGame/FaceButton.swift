@@ -24,7 +24,11 @@ open class FaceButton: UIButton {
         setup()
     }
 
-    func setup() {
+    func setup(title:String? = nil, id:Int = 0) {
+        self.setTitle(title, for: .normal)
+        self.id = id
+        self.setBackgroundImage(nil, for: .normal)
+        
         setTitleColor(.white, for: .normal)
         titleLabel?.alpha = 0.0
 

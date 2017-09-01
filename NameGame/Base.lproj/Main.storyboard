@@ -132,9 +132,6 @@
                     <navigationItem key="navigationItem" id="1gU-6S-RY7"/>
                     <connections>
                         <outlet property="activityView" destination="ceY-GQ-MCa" id="z1c-XH-8U9"/>
-                        <outlet property="innerStackView1" destination="yfe-s7-jzS" id="Zp0-9b-ieY"/>
-                        <outlet property="innerStackView2" destination="3zo-MX-03O" id="rti-gM-xPf"/>
-                        <outlet property="outerStackView" destination="ufp-UU-gjs" id="rjx-ai-TOZ"/>
                         <outletCollection property="faceButtons" destination="1eG-Bc-1SU" collectionClass="NSMutableArray" id="CNW-Jl-CSu"/>
                         <outletCollection property="faceButtons" destination="y9v-DZ-56u" collectionClass="NSMutableArray" id="TYK-Ra-E4m"/>
                         <outletCollection property="faceButtons" destination="bsy-ku-2ss" collectionClass="NSMutableArray" id="EKO-0U-oEc"/>

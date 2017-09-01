@@ -42,4 +42,22 @@ class WTProfiles: NSObject {
         }
     }
     
+    func removeProfile(profile:WTProfile?) {
+        if profile != nil, let index = profiles.index(of: profile!) {
+            profiles.remove(at: index)
+        }
+    }
+    
+    func getFiltredList(count:Int, filter:String?) throws -> [WTProfile] {
+        let filteredList = self.profiles.filter({ (wtProfile) -> Bool in
+            return filter == nil || wtProfile.firstName.hasPrefix(filter!)
+        })
+        
+        guard let list = filteredList.randomItems(maxItems: count), list.count > 0 else {
+            throw WTError.noProfiles
+        }
+        
+        return list
+    }
+    
 }
