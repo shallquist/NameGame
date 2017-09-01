@@ -19,14 +19,18 @@ class WTProfiles: NSObject {
             return
         }
         
+        //need to remove any previously loaded profiles when user resets game
+        profiles.removeAll()
+        
         Alamofire.request(wtURL!)
             .validate()
             .responseJSON { (response) in
                 if let profiles = response.result.value as? [[String : Any?]] {
                     self.setProfiles(profiles: profiles)
-                    
-                    handler(nil)
                 }
+                
+                //return any errors to the calling routine
+                handler(response.error)
         }
     }
     

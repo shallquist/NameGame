@@ -14,6 +14,7 @@
 		D2D1F4B11F58802C00C7D624 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1F4B01F58802C00C7D624 /* Extensions.swift */; };
 		D2D1F4B21F58802C00C7D624 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1F4B01F58802C00C7D624 /* Extensions.swift */; };
 		D2D1F4B41F58A95E00C7D624 /* FaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1F4B31F58A95E00C7D624 /* FaceButton.swift */; };
+		D2D1F4B81F59757800C7D624 /* WTErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1F4B71F59757800C7D624 /* WTErrors.swift */; };
 		D2E252CB1F585CE00025BBE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E252CA1F585CE00025BBE2 /* AppDelegate.swift */; };
 		D2E252CD1F585CE00025BBE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E252CC1F585CE00025BBE2 /* ViewController.swift */; };
 		D2E252D01F585CE00025BBE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E252CE1F585CE00025BBE2 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		D2D1F4AD1F58724100C7D624 /* WTProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTProfile.swift; sourceTree = "<group>"; };
 		D2D1F4B01F58802C00C7D624 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D2D1F4B31F58A95E00C7D624 /* FaceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceButton.swift; sourceTree = "<group>"; };
+		D2D1F4B71F59757800C7D624 /* WTErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTErrors.swift; sourceTree = "<group>"; };
 		D2E252C71F585CE00025BBE2 /* NameGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NameGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2E252CA1F585CE00025BBE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2E252CC1F585CE00025BBE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		D2D1F4B91F59788F00C7D624 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D2D1F4B01F58802C00C7D624 /* Extensions.swift */,
+				D2D1F4B71F59757800C7D624 /* WTErrors.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		D2E252BE1F585CE00025BBE2 = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +145,7 @@
 				D2E252D61F585CE00025BBE2 /* Info.plist */,
 				D2D1F4B61F58A98000C7D624 /* Model */,
 				D2D1F4B51F58A96B00C7D624 /* Views */,
-				D2D1F4B01F58802C00C7D624 /* Extensions.swift */,
+				D2D1F4B91F59788F00C7D624 /* Utilities */,
 			);
 			path = NameGame;
 			sourceTree = "<group>";
@@ -365,6 +376,7 @@
 			files = (
 				D2D1F4B11F58802C00C7D624 /* Extensions.swift in Sources */,
 				D2E252CD1F585CE00025BBE2 /* ViewController.swift in Sources */,
+				D2D1F4B81F59757800C7D624 /* WTErrors.swift in Sources */,
 				D2E252CB1F585CE00025BBE2 /* AppDelegate.swift in Sources */,
 				D2D1F4AE1F58724100C7D624 /* WTProfile.swift in Sources */,
 				D2D1F4B41F58A95E00C7D624 /* FaceButton.swift in Sources */,

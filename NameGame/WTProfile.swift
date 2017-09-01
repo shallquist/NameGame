@@ -11,14 +11,14 @@ import UIKit
 class WTProfile: NSObject {
     var firstName : String
     var lastName : String
-    var imageURL : String
+    var imageURL : URL
     
     var fullName : String {
         return "\(firstName) \(lastName)"
     }
     
     
-    init(firstName:String, lastName:String, imageURL:String) {
+    init(firstName:String, lastName:String, imageURL:URL) {
         self.firstName = firstName
         self.lastName = lastName
         self.imageURL = imageURL
@@ -31,11 +31,15 @@ class WTProfile: NSObject {
             let firstName = dict["firstName"] as? String,
             let lastName = dict["lastName"] as? String,
             let headShot = dict["headshot"] as? [String : Any],
-            let imageURL = (headShot["url"] as? String)?.trimmingCharacters(in: CharacterSet.init(charactersIn: "//"))
+            let urlString = (headShot["url"] as? String)?.trimmingCharacters(in: CharacterSet.init(charactersIn: "//")),
+            let imageURL = URL(string:"https://\(urlString)")
         else {
             return nil
         }
         
+        //if the image URL contains Test1 then reject it since there appears to be no image associated with that profile
+        if urlString.uppercased().contains("TEST1") { return nil }
+
         self.init(firstName: firstName, lastName: lastName, imageURL: imageURL)
     }
     

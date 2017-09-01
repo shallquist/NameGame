@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     var maxProfiles:Int!
     var currentProfile:Int = 0
     
+    var nameFilter:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -75,16 +77,22 @@ class ViewController: UIViewController {
         
         profiles.loadData(handler: { error in
             self.activityView.isHidden = true
-            self.newGame()
+            
+            if error == nil {
+                self.newGame()
+            } else {
+                self.errorMessage(error: error)
+            }
         })
     }
     
-    func newGame(filter:String? = nil) {
+    func newGame(_ filter:String? = nil) {
         let filteredList = profiles.profiles.filter({ (wtProfile) -> Bool in
             return filter == nil || wtProfile.firstName.hasPrefix(filter!)
         })
         
         guard let list = filteredList.randomItems(maxItems: maxProfiles), list.count > 0 else {
+            errorMessage(error: WTError.noProfiles)
             return
         }
         
@@ -102,19 +110,65 @@ class ViewController: UIViewController {
             cButton.setBackgroundImage(photo, for: .normal)
         }
     }
+    
+    func errorMessage(error:Error?) {
+        var message:String
+        
+        if let myError = error as? WTError {
+            message = myError.localizedDescription
+        } else {
+            message = error?.localizedDescription ?? "Unknown Error"
+        }
+        
+        
+        let alertVC = UIAlertController(title: "Error!", message: message, preferredStyle: .alert)
+        
+        alertVC.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        
+        present(alertVC, animated: true, completion: nil)
+    }
 
     @IBAction func faceButtonAction(_ sender: UIButton) {
         guard let cButton = sender as? FaceButton else { return }
         
-        cButton.checkGuess(guess: currentProfile)
-        
-        if cButton.id == currentProfile {
+        if cButton.checkGuess(guess: currentProfile) {
             print("Wow!!")
         }
     }
     
+    @IBAction func filterAction(_ sender: UIBarButtonItem) {
+        let message = "Enter one or more letters of a persons first name to filter the list of profiles.\nNo wild cards are necessary."
+        
+        let alertVC = UIAlertController(title: "Filter", message: message, preferredStyle: .alert)
+        var inputText:UITextField?
+        
+        alertVC.addTextField(configurationHandler: {textField in
+            textField.placeholder = "Filter"
+            textField.autocapitalizationType = .sentences
+            textField.autocorrectionType = .no
+            textField.text = self.nameFilter
+            inputText = textField
+        })
+        
+        let setAction = UIAlertAction(title: "Set", style: .default) { (alertAction) in
+            self.nameFilter = inputText?.text
+            self.newGame(self.nameFilter)
+        }
+
+        let removeAction = UIAlertAction(title: "Remove", style: .destructive) { (_) in
+            self.nameFilter = nil
+            self.newGame(self.nameFilter)
+        }
+        
+        alertVC.addAction(setAction)
+        alertVC.addAction(removeAction)
+        alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alertVC, animated: true, completion: nil)
+    }
+    
     @IBAction func playGame(_ sender: UIBarButtonItem) {
-        self.newGame()
+        newGame(self.nameFilter)
     }
 }
 

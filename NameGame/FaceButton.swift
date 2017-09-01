@@ -38,7 +38,7 @@ open class FaceButton: UIButton {
         tintView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 
-    func checkGuess(guess:Int) {
+    func checkGuess(guess:Int)->Bool {
         tintView.alpha = 0.25
         titleLabel?.alpha = 1.0
 
@@ -47,5 +47,7 @@ open class FaceButton: UIButton {
         } else {
             tintView.backgroundColor = UIColor.red
         }
+        
+        return id == guess
     }
 }
