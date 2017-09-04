@@ -6,6 +6,13 @@
 //  Copyright © 2017 steig hallquist. All rights reserved.
 //
 
+/*
+    Class that maintains information for a single profile
+    
+    Retrieves the profile image from the URL location
+ 
+*/
+
 import UIKit
 
 class WTProfile: NSObject {
@@ -44,13 +51,32 @@ class WTProfile: NSObject {
     }
     
     
-    func getImage()->UIImage? {
-        guard
-            let imageData = try? Data(contentsOf: imageURL)
-        else {
-                return nil
+    // Retrieves the profile image from the URL location using the Data Class contents of initializer
+    func getImage()throws->UIImage? {
+        do {
+            let imageData = try Data(contentsOf: imageURL)
+            return UIImage(data: imageData)
+        } catch  {
+            throw error
         }
+    }
+    
+    // Retrieves the profile image from the URL location using the Data Class contents of initializer
+    func retrieveImage(handler:@escaping (_ image:UIImage?,_ error:Error?)->Void) {
+        var anImage:UIImage?
+        var anError:Error?
         
-        return UIImage(data: imageData)
+        DispatchQueue.global().async {
+            do {
+                let imageData = try Data(contentsOf: self.imageURL)
+                anImage = UIImage(data: imageData)
+            } catch {
+                anError = error
+            }
+
+            DispatchQueue.main.async {
+                handler(anImage, anError)
+            }
+        }
     }
 }

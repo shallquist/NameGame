@@ -6,6 +6,13 @@
 //  Copyright © 2017 steig hallquist. All rights reserved.
 //
 
+/*
+    Responsible for retrieving and maintaining the profile data.
+ 
+    Retrieves profile data from the web service using the Alamofire framework and saves it in the profile property
+ 
+*/
+
 import UIKit
 import Alamofire
 
@@ -34,6 +41,7 @@ class WTProfiles: NSObject {
         }
     }
     
+    //loads the profiles into the profiles property
     func setProfiles(profiles:[[String:Any?]]) {
         for elem in profiles {
             if let newProfile = WTProfile(dict: elem) {
@@ -42,12 +50,17 @@ class WTProfiles: NSObject {
         }
     }
     
+    //removes a profile from the profiles list property  
+    // This is used whenever a user makes a correct guess, so that the profile will not show again
     func removeProfile(profile:WTProfile?) {
         if profile != nil, let index = profiles.index(of: profile!) {
             profiles.remove(at: index)
         }
     }
     
+    // Given a 1 or more character string returns a filtered list of profiles 
+    // where the leading characters of the first name match the filter
+    //
     func getFiltredList(count:Int, filter:String?) throws -> [WTProfile] {
         let filteredList = self.profiles.filter({ (wtProfile) -> Bool in
             return filter == nil || wtProfile.firstName.uppercased().hasPrefix(filter!.uppercased())

@@ -9,6 +9,7 @@
 import Foundation
 
 extension Array {
+    // given a number of elements requested returns a list of random elements of that size
     func randomItems(maxItems:Int) -> [Element]? {
         if isEmpty { return nil }
         

@@ -9,7 +9,7 @@
 import Foundation
 
 let WTErrorMessages:[WTError:String] = [
-    .noProfiles : "No profiles were returned.\nIf a filter is set, please adjust filter."
+    .noProfiles : "No profiles were returned.\nIf a filter is set, please adjust filter or\ncheck internet connection and try reloading game."
 ]
 
 enum WTError : Error {
